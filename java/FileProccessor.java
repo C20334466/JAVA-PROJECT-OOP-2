@@ -11,6 +11,7 @@ public class FileProccessor {
 		//attributes
 		String fileName;   
 		File myFile;
+		static String line;
 		
 		
 		//constructors
@@ -28,16 +29,18 @@ public class FileProccessor {
 		//read line method
 		public String readLines()
 		{
-				String line = "";  //right now we are just reading one line from the file
+				  //right now we are just reading one line from the file
 				
 				try {
 					Scanner myScanner = new Scanner(myFile);
+					 
 					while(myScanner.hasNextLine())
 					{
 						line = myScanner.nextLine();
-						System.out.println(line );
+						System.out.println(line);
 					}
 					myScanner.close();
+					
 				//error checking
 				} catch (FileNotFoundException e) { 
 					e.printStackTrace();
