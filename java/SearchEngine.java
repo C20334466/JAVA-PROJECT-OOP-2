@@ -19,6 +19,7 @@ public class SearchEngine extends JFrame implements ActionListener {
 	JPanel panel;
 	JTextField field1;
 	String referenceWord;
+	static String l;
 	
 	SearchEngine(String title){
 		
@@ -31,6 +32,7 @@ public class SearchEngine extends JFrame implements ActionListener {
 		// search button
 		sbutton = new JButton("SEARCH FOR MY FILE");
 		
+		//method to listen for button clicks
 		sbutton.addActionListener(this);
 		
 		// text field
@@ -50,19 +52,31 @@ public class SearchEngine extends JFrame implements ActionListener {
 		
 	}
 
-	
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+	
+		//what happens when button is clicked
 		if(sbutton == e.getSource())
 		{
-			referenceWord = field1.getText();
-			JOptionPane.showMessageDialog(this, referenceWord);
-			/*
 			FileProccessor fileProcess = new FileProccessor ("example.txt");
 			fileProcess.openFile();
 			String line = fileProcess.readLines();
-			*/
+			l = FileProccessor.line;
+			
+			referenceWord = field1.getText();
+			System.out.println(referenceWord);
+			
+			//if statement to check if file contains referenced word
+			if(l.contains(referenceWord)){
+				JOptionPane.showMessageDialog(this, "Your file contains this word");
+				
+			}
+			
+			else {
+				JOptionPane.showMessageDialog(this, "Your file does not contains this word");
+			}		
+			
+	
+			
 		}
 	}
 
